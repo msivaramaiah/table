@@ -82,7 +82,16 @@ tr:nth-child(odd) {
             var divContainer = document.getElementById(elementToBind);
             divContainer.innerHTML = "";
             divContainer.appendChild(table);
-            function myFunction() {
+
+        }
+
+                })
+                .catch((error) =>
+                    console.error("Unable to fetch data:", error));
+        }
+        fetchJSONData();
+
+                function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
@@ -100,13 +109,6 @@ tr:nth-child(odd) {
     }       
   }
 }
-        }
-
-                })
-                .catch((error) =>
-                    console.error("Unable to fetch data:", error));
-        }
-        fetchJSONData();
 
 
 </script>
