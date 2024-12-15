@@ -33,7 +33,7 @@
         <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Billing Account">
         <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="TelePhone Number">
     </div>
-    <div id="tblEmployee"></div>
+    <div id="tblEmployee" style.display = "none"></div>
 
     <script>
 
@@ -91,6 +91,7 @@
                         var divContainer = document.getElementById(elementToBind);
                         divContainer.innerHTML = "";
                         divContainer.appendChild(table);
+                        divContainer.style.display = "none";
 
                     }
 
@@ -107,7 +108,7 @@
             table = document.getElementById("tblEmployee");
             trr = table.getElementsByTagName("tr");
             for (i = 0; i < trr.length; i++) {
-                tdd = trr[i].getElementsByTagName("td")[0]; //cloumn index is 1
+                tdd = trr[i].getElementsByTagName("td")[0]; //cloumn index is 0
                 if (tdd) {
                     txtValue = tdd.textContent || tdd.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
