@@ -16,7 +16,7 @@ tr:nth-child(odd) {
 
 <script>
 
-        var jsonDataEmployee;
+        
         function fetchJSONData() {
             fetch("./tabledata2.json")
                 .then((res) => {
@@ -27,32 +27,9 @@ tr:nth-child(odd) {
                     return res.json();
                 })
                 .then((data) =>
-                    jsonDataEmployee=data)
-                .catch((error) =>
-                    console.error("Unable to fetch data:", error));
-        }
-        fetchJSONData();
-
-        var jsonDataEmployee2 = [
-               {
-                   "EmployeeID": "1",
-                   "EmployeeName": "Sartaj Husain",
-                   "EmployeeCode": "EC0001"
-
-               },
-               {
-                   "EmployeeID": "2",
-                   "EmployeeName": "Bil Gates ",
-                   "EmployeeCode": "EC0002"
-
-               },
-               {
-                   "EmployeeID": "3",
-                   "EmployeeName": "Mark Zuckerberg",
-                   "EmployeeCode": "EC0003"
-               }
-        ]
-        window.onload = JSONToHTMLTable(jsonDataEmployee, "tblEmployee");
+                    console.log(data)
+                    var jsonDataEmployee=data;
+                    window.onload = JSONToHTMLTable(jsonDataEmployee, "tblEmployee");
 
         function JSONToHTMLTable(jsonData, elementToBind) {
           
@@ -94,4 +71,30 @@ tr:nth-child(odd) {
             divContainer.innerHTML = "";
             divContainer.appendChild(table);
         }
+
+                )
+                .catch((error) =>
+                    console.error("Unable to fetch data:", error));
+        }
+        fetchJSONData();
+
+        var jsonDataEmployee2 = [
+               {
+                   "EmployeeID": "1",
+                   "EmployeeName": "Sartaj Husain",
+                   "EmployeeCode": "EC0001"
+
+               },
+               {
+                   "EmployeeID": "2",
+                   "EmployeeName": "Bil Gates ",
+                   "EmployeeCode": "EC0002"
+
+               },
+               {
+                   "EmployeeID": "3",
+                   "EmployeeName": "Mark Zuckerberg",
+                   "EmployeeCode": "EC0003"
+               }
+        ]
 </script>
