@@ -8,10 +8,22 @@ th,td {padding:10px}
 tr:nth-child(odd) {
     background-color: #f2f2f2      
 }
+
+    #myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
 </style>
 
 <body>
 <h2>JSON Data To HTML Table</h2>
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Biing Account.." title="Type in a name">
     <div id="tblEmployee"></div>
 
 <script>
@@ -70,6 +82,24 @@ tr:nth-child(odd) {
             var divContainer = document.getElementById(elementToBind);
             divContainer.innerHTML = "";
             divContainer.appendChild(table);
+            function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("elementToBind");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
         }
 
                 })
@@ -78,23 +108,5 @@ tr:nth-child(odd) {
         }
         fetchJSONData();
 
-        var jsonDataEmployee2 = [
-               {
-                   "EmployeeID": "1",
-                   "EmployeeName": "Sartaj Husain",
-                   "EmployeeCode": "EC0001"
 
-               },
-               {
-                   "EmployeeID": "2",
-                   "EmployeeName": "Bil Gates ",
-                   "EmployeeCode": "EC0002"
-
-               },
-               {
-                   "EmployeeID": "3",
-                   "EmployeeName": "Mark Zuckerberg",
-                   "EmployeeCode": "EC0003"
-               }
-        ]
 </script>
