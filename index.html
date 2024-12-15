@@ -8,7 +8,10 @@
 
     th,
     td {
-        padding: 10px
+        padding: 10px;
+        word-break: break-all;
+        width: 100px;
+     
     }
 
     tr:nth-child(odd) {
@@ -18,7 +21,7 @@
     #myInput {
         background-position: 10px 10px;
         background-repeat: no-repeat;
-        width: 100%;
+        width: 100px;
         font-size: 16px;
         padding: 12px 20px 12px 40px;
         border: 1px solid #ddd;
@@ -28,7 +31,10 @@
 
 <body>
     <h2>JSON Data To HTML Table</h2>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Biing Account.." title="Type in a name">
+    <div style="display: inline-block;">
+        <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Billing Account">
+        <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="TelePhone Number">
+    </div>
     <div id="tblEmployee"></div>
 
     <script>
@@ -96,9 +102,9 @@
         }
         fetchJSONData();
 
-        function myFunction() {
+        function myFunction1() {
             var input, filter, table, trr, td, i, txtValue;
-            input = document.getElementById("myInput");
+            input = document.getElementById("myInput1");
             filter = input.value.toUpperCase();
             table = document.getElementById("tblEmployee");
             trr = table.getElementsByTagName("tr");
@@ -115,5 +121,23 @@
             }
         }
 
+        function myFunction2() {
+            var input, filter, table, trr, td, i, txtValue;
+            input = document.getElementById("myInput2");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("tblEmployee");
+            trr = table.getElementsByTagName("tr");
+            for (i = 0; i < trr.length; i++) {
+                tdd = trr[i].getElementsByTagName("td")[0];
+                if (tdd) {
+                    txtValue = tdd.textContent || tdd.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        trr[i].style.display = "";
+                    } else {
+                        trr[i].style.display = "none";
+                    }
+                }
+            }
+        }
 
     </script>
