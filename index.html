@@ -26,7 +26,7 @@ tr:nth-child(odd) {
                     }
                     return res.json();
                 })
-                .then((data) =>
+                .then((data) =>{
                     console.log(data);
                     var jsonDataEmployee=data;
                     window.onload = JSONToHTMLTable(jsonDataEmployee, "tblEmployee");
@@ -72,7 +72,7 @@ tr:nth-child(odd) {
             divContainer.appendChild(table);
         }
 
-                )
+                })
                 .catch((error) =>
                     console.error("Unable to fetch data:", error));
         }
