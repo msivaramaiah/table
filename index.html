@@ -16,6 +16,7 @@ tr:nth-child(odd) {
 
 <script>
 
+        var jsonDataEmployee;
         function fetchJSONData() {
             fetch("./tabledata2.json")
                 .then((res) => {
@@ -26,13 +27,13 @@ tr:nth-child(odd) {
                     return res.json();
                 })
                 .then((data) =>
-                    console.log(data))
+                    jsonDataEmployee=data)
                 .catch((error) =>
                     console.error("Unable to fetch data:", error));
         }
         fetchJSONData();
 
-        var jsonDataEmployee = [
+        var jsonDataEmployee2 = [
                {
                    "EmployeeID": "1",
                    "EmployeeName": "Sartaj Husain",
