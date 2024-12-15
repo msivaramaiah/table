@@ -22,8 +22,6 @@
         background-position: 10px 10px;
         background-repeat: no-repeat;
         width: 100px;
-        font-size: 16px;
-        padding: 12px 20px 12px 40px;
         border: 1px solid #ddd;
         margin-bottom: 12px;
     }
@@ -109,7 +107,7 @@
             table = document.getElementById("tblEmployee");
             trr = table.getElementsByTagName("tr");
             for (i = 0; i < trr.length; i++) {
-                tdd = trr[i].getElementsByTagName("td")[0];
+                tdd = trr[i].getElementsByTagName("td")[0]; //cloumn index is 1
                 if (tdd) {
                     txtValue = tdd.textContent || tdd.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -128,7 +126,7 @@
             table = document.getElementById("tblEmployee");
             trr = table.getElementsByTagName("tr");
             for (i = 0; i < trr.length; i++) {
-                tdd = trr[i].getElementsByTagName("td")[0];
+                tdd = trr[i].getElementsByTagName("td")[1]; //cloumn index is 1
                 if (tdd) {
                     txtValue = tdd.textContent || tdd.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
