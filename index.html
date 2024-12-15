@@ -102,10 +102,10 @@
             filter = input.value.toUpperCase();
             table = document.getElementById("elementToBind");
             trr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = trr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
+            for (i = 0; i < trr.length; i++) {
+                tdd = trr[i].getElementsByTagName("td")[0];
+                if (tdd) {
+                    txtValue = tdd.textContent || tdd.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
                         trr[i].style.display = "";
                     } else {
