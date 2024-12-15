@@ -16,7 +16,6 @@
     }
 
     #myInput {
-        background-image: url('/css/searchicon.png');
         background-position: 10px 10px;
         background-repeat: no-repeat;
         width: 100%;
@@ -98,19 +97,19 @@
         fetchJSONData();
 
         function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
+            var input, filter, table, trr, td, i, txtValue;
             input = document.getElementById("myInput");
             filter = input.value.toUpperCase();
             table = document.getElementById("elementToBind");
-            tr = table.getElementsByTagName("tr");
+            trr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
+                td = trr[i].getElementsByTagName("td")[0];
                 if (td) {
                     txtValue = td.textContent || td.innerText;
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
+                        trr[i].style.display = "";
                     } else {
-                        tr[i].style.display = "none";
+                        trr[i].style.display = "none";
                     }
                 }
             }
